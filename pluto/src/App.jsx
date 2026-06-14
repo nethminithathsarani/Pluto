@@ -1,30 +1,30 @@
 import './index.css'
 import SectionCard from './components/SectionCard'
-import heroPanel      from '../../Images/botcalm_cartoon_type_etc.png'
-import astronautBear  from '../../Images/image (2).png'
-import planetArt      from '../../Images/image.gif'
-import spaceBoard     from '../../Images/image (9).png'
-import floatingBear   from '../../Images/image (3).png'
-import standingBear   from '../../Images/image (8).png'
-import buyNowBear     from '../../Images/image (7).png'
-import tokenomicsBg   from '../../Images/image (4).png'
-import meditatingBear from '../../Images/image (5).png'
+import heroPanel      from './assets/Images/botcalm_cartoon_type_etc.png'
+import astronautBear  from './assets/Images/image (2).png'
+import planetArt      from './assets/Images/image.gif'
+import spaceBoard     from './assets/Images/image (9).png'
+import floatingBear   from './assets/Images/image (3).png'
+import standingBear   from './assets/Images/image (8).png'
+import buyNowBear     from './assets/Images/image (7).png'
+import tokenomicsBg   from './assets/Images/image (4).png'
+import meditatingBear from './assets/Images/image (5).png'
 
 export default function App() {
   return (
-    <div
-      className="relative w-full overflow-hidden"
-      style={{
-        height: '100vh',
-        backgroundImage: `url(${heroPanel})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
-      }}
-    >
-      {/* Subtle overlay */}
-      <div className="absolute inset-0 z-0" style={{ background: 'rgba(10,15,40,0.18)' }} />
+  <div
+  className="relative w-full overflow-hidden"
+  style={{
+    height: '100vh',
+    backgroundImage: `url(${heroPanel})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    
+  }}
+>
+  {/* 70% opacity overlay matching cells */}
+  <div className="absolute inset-0 z-0 bg-[#c8d7eb]/70 " />
 
       {/* ── Floating bears ── sit on the row-1/row-2 boundary at column borders */}
       {/* Standing bear: col1/col2 border ≈ 33.5% from left */}
@@ -34,12 +34,10 @@ export default function App() {
         style={{
           width: '8%',
           height: 'auto',
-          /* row1 takes 456fr of 1342fr of the inner grid height.
-             Grid inner height = 100vh - 2*16px padding - 2*10px gap = 100vh - 52px
-             Bear bottom = padding(16) + gap(10) + row2height + row3height
-             Easier: top of row2 from top = 16px + (456/1342)*(100vh-52px) + 10px */
-          bottom: 'calc( (886/1342) * (100vh - 52px) + 26px )',
-          left: 'calc( 16px + (628/1842) * (100vw - 42px) + 10px )',
+          /* Grid: padding=24px, gap=24px on every side.
+             2p+2g = 96 ; 2p+g = 72 ; p+g = 48 */
+          bottom: 'calc( (886/1342) * (100vh - 96px) + 48px )',
+          left: 'calc( 24px + (628/1842) * (100vw - 72px) + 24px )',
           transform: 'translateX(-50%) scaleX(-1)',
         }}
       />
@@ -50,8 +48,8 @@ export default function App() {
         style={{
           width: '5.5%',
           height: 'auto',
-          bottom: 'calc( (886/1342) * (100vh - 52px) + 26px )',
-          left: 'calc( 16px + (1296/1842) * (100vw - 42px) + 10px )',
+          bottom: 'calc( (886/1342) * (100vh - 96px) + 48px )',
+          left: 'calc( 24px + (1296/1842) * (100vw - 72px) + 24px )',
           transform: 'translateX(-50%)',
         }}
       />
@@ -63,8 +61,8 @@ export default function App() {
           display: 'grid',
           height: '100vh',
           width: '100%',
-          padding: '16px',
-          gap: '10px',
+          padding: '24px',
+          gap: '24px',
           /* 3 cols: Figma widths 628 : 628 : 506 out of total 1842 */
           gridTemplateColumns: '628fr 628fr 506fr',
           /* 3 rows: Figma heights 456 : 429 : 457 */
@@ -78,12 +76,11 @@ export default function App() {
         {/* About Us */}
         <SectionCard
           title="About Us"
-          className="absolute left-0 top-0 h-[456px] w-[628px] rounded-none border-4 border-black bg-[#c8d7eb]/70 !p-0"
-          titleClassName="font-cartoon font-normal text-[#000000]"
-          textClassName="font-cartoon font-semibold text-[#11173E]"
-          contentClassName="w-[579.22px] h-[401.36px] gap-8 items-start justify-start pt-[27px] pl-[22px] pr-[26.78px]"
-          titleStyle={{ fontSize: '64px', lineHeight: '111px' }}
-          textStyle={{ fontSize: '18px', lineHeight: '31px' }}
+          className="bg-[#c8d7eb]/70"
+          titleClassName="font-cartoon font-normal leading-none text-[#000000]"
+          textClassName="font-cartoon font-semibold text-[#11173E] leading-snug"
+          titleStyle={{ fontSize: 'clamp(1.5rem, 2.8vw, 3.5rem)' }}
+          textStyle={{ fontSize: 'clamp(0.55rem, 0.85vw, 0.95rem)' }}
         >
           <p>Pluto Token is a celestial cryptocurrency inspired by the mysterious dwarf planet, Pluto. Just as Pluto holds a unique place in our solar system, this token represents innovation, exploration, and discovery in the world of digital assets.</p>
           <p>With a focus on community-driven growth and transparency, Pluto Token aims to bring a sense of wonder and excitement to the crypto space. Whether you're a seasoned investor or a newcomer, Pluto Token is here to offer an out-of-this-world experience. Join us on this cosmic journey as we venture beyond the stars!</p>
@@ -104,32 +101,74 @@ export default function App() {
         </SectionCard>
 
         {/* Planets (top-right) */}
-        <section className="relative box-border overflow-hidden rounded-xl border-[4px] border-black bg-[#05051a]">
-          <img src={planetArt} alt="planets" className="absolute inset-0 w-full h-full object-cover" />
+        <section
+          className="relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md"
+          style={{
+            backgroundImage: `url(${spaceBoard})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <img
+            src={planetArt}
+            alt="planets"
+            style={{
+              position: 'absolute',
+              width: '163.36px',
+              height: '173.09px',
+              left: '85px',
+              top: '51px',
+            }}
+          />
         </section>
 
         {/* ── ROW 2 ── */}
 
         {/* Tokenomics */}
-        <SectionCard
-          title="Tokenomics"
-          bgImage={tokenomicsBg}
-          className="p-4"
-          bgOverlayClassName="bg-transparent"
-          titleClassName="font-cartoon text-center font-normal leading-none text-[#000000]"
-          textClassName="font-cartoon font-semibold text-[#11173E] leading-snug text-center space-y-2"
-          contentClassName="items-center justify-center"
-          titleStyle={{ fontSize: 'clamp(1.4rem, 2.5vw, 3rem)' }}
-          textStyle={{ fontSize: 'clamp(0.75rem, 1.2vw, 1.2rem)' }}
-        >
-          <p>Total Supply - 6 M</p>
-          <p>Burnt Liquidity</p>
-          <p>Buy/Sell Tax - 0%</p>
-        </SectionCard>
+<section
+  className="relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md"
+  style={{
+    backgroundImage: `url(${tokenomicsBg})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '100%',
+  }}
+>
+  <div className="absolute inset-0 bg-white/10" />
+
+  <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4 py-8">
+    <h2
+      style={{
+        fontFamily: 'Marhey, cursive',
+        fontSize: 'clamp(1.4rem, 2.5vw, 3rem)',
+        fontWeight: 900,
+        color: '#000',
+        lineHeight: 1,
+        marginBottom: '1rem',
+      }}
+    >
+      Tokenomics
+    </h2>
+
+    <div
+      style={{
+        fontFamily: 'Marhey, cursive',
+        fontSize: 'clamp(0.75rem, 1.2vw, 1.2rem)',
+        fontWeight: 600,
+        color: '#11173E',
+        lineHeight: 1.6,
+      }}
+    >
+      <p>Total Supply - 6 M</p>
+      <p>Burnt Liquidity</p>
+      <p>Buy/Sell Tax - 0%</p>
+    </div>
+  </div>
+</section>
 
         {/* PLUTO hero */}
         <section
-          className="relative box-border overflow-hidden rounded-xl border-[4px] border-black"
+          className="relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md"
           style={{ backgroundImage: `url(${heroPanel})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
           <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
@@ -181,15 +220,21 @@ export default function App() {
         {/* ── ROW 3 ── */}
 
         {/* Join Now */}
-        <section className="relative box-border overflow-hidden rounded-xl border-[4px] border-black bg-[#c8d7eb]/70">
+        <section className="relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md bg-[#c8d7eb]/70">
           <div className="relative z-10 flex h-full flex-col items-center justify-start pt-3 px-4 text-center gap-2">
             <p style={{ fontFamily: 'Marhey, cursive', fontSize: 'clamp(0.55rem, 0.85vw, 0.9rem)', fontWeight: 600, color: '#11173E', lineHeight: 1.5 }}>
               Embark on an interstellar journey with us! Join the Pluto Token community today and be part of a vibrant group of explorers, innovators, and dreamers.
             </p>
-            <div className="flex items-center gap-2">
-              <span className="text-xl">➤</span>
+            <div className="flex items-center gap-3">
+              {/* Telegram icon */}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.05 3.6 2.8 10.8c-1.05.42-1.04 1.4.02 1.8l4.6 1.7 1.8 5.6c.24.7 1.1.86 1.66.34l2.5-2.3 4.6 3.4c.7.5 1.7.14 1.9-.7l3.2-15c.22-.96-.6-1.7-1.53-1.04Zm-4.3 3.4-7.6 7-0.3 4.3-1.5-4.6 9.4-6.7Z" fill="#000"/>
+              </svg>
               <span style={{ fontFamily: 'Marhey, cursive', fontSize: 'clamp(1.2rem, 2.2vw, 2rem)', fontWeight: 900, color: '#000' }}>JOIN NOW</span>
-              <span className="text-xl">⟳</span>
+              {/* X / refresh-style icon */}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.5 1H21l-7.2 8.2L22 23h-6.9l-5.4-7.1L3.4 23H0l7.7-8.8L0 1h7l4.9 6.5L17.5 1Zm-2 19.7h1.9L6.6 2.6H4.6l10.9 18.1Z" fill="#000"/>
+              </svg>
             </div>
           </div>
           <img
@@ -214,7 +259,7 @@ export default function App() {
 
         {/* Buy Now */}
         <section
-          className="relative box-border overflow-hidden rounded-xl border-[4px] border-black"
+          className="relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md"
           style={{ backgroundImage: `url(${spaceBoard})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
           <div

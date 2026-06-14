@@ -32,34 +32,50 @@ export default function SectionCard({
 
   return (
     <article
-      className={`relative box-border flex min-w-0 flex-col overflow-hidden rounded-xl border-[4px] border-black p-4 text-left ${className}`}
+      className={`relative box-border flex min-w-0 flex-col overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md p-4 text-left ${className}`}
       style={{
-        /* fill the grid cell completely */
         width: '100%',
         height: '100%',
-        ...(bgImage ? {
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          contain: 'paint',
-        } : { contain: 'paint' }),
+        ...(bgImage
+          ? {
+              backgroundImage: `url(${bgImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }
+          : {}),
       }}
     >
-      {bgImage && <div className={`absolute inset-0 ${bgOverlayClassName}`} />}
+      {/* Overlay */}
+      {bgImage && (
+        <div className={`absolute inset-0 ${bgOverlayClassName} z-0`} />
+      )}
 
+      {/* Content */}
       <div className={`relative z-10 flex h-full flex-col gap-2 ${contentClassName}`}>
         {title && (
-          <h3 className={titleClassName} style={defaultTitleStyle}>{title}</h3>
+          <h3 className={titleClassName} style={defaultTitleStyle}>
+            {title}
+          </h3>
         )}
-        <div className={textClassName} style={defaultTextStyle}>{children}</div>
+
+        <div className={textClassName} style={defaultTextStyle}>
+          {children}
+        </div>
       </div>
 
+      {/* Optional image */}
       {image && (
         <img
           src={image}
           alt="character"
           className="pointer-events-none absolute z-20"
-          style={{ bottom: 0, right: 0, width: '85px', height: 'auto', ...imageStyle }}
+          style={{
+            bottom: 0,
+            right: 0,
+            width: '85px',
+            height: 'auto',
+            ...imageStyle,
+          }}
         />
       )}
     </article>
