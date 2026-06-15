@@ -32,32 +32,29 @@ export default function App() {
         }}
       />
 
-      {/* ── Floating bears — desktop only ── */}
-      {/* Standing bear */}
-<img
-  src={standingBear} alt=""
-  className="floating-bear standing pointer-events-none absolute z-30"
-  style={{
-    width: '8%',
-    height: 'auto',
-    bottom: 'calc( (886/1342) * (100vh - 96px) + 48px )',
-    left: 'calc( 24px + (628/1842) * (100vw - 72px) + 24px )',
-    transform: 'translateX(-50%) scaleX(-1)',
-  }}
-/>
-
-{/* Astronaut bear */}
-<img
-  src={astronautBear} alt=""
-  className="floating-bear astronaut pointer-events-none absolute z-30"
-  style={{
-    width: '5.5%',
-    height: 'auto',
-    bottom: 'calc( (886/1342) * (100vh - 96px) + 48px )',
-    left: 'calc( 24px + (1296/1842) * (100vw - 72px) + 24px )',
-    transform: 'translateX(-50%)',
-  }}
-/>
+      {/* ── Floating bears ── */}
+      <img
+        src={standingBear} alt=""
+        className="floating-bear standing pointer-events-none absolute z-30"
+        style={{
+          width: '8%',
+          height: 'auto',
+          bottom: 'calc( (886/1342) * (100vh - 96px) + 48px )',
+          left: 'calc( 24px + (628/1842) * (100vw - 72px) + 24px )',
+          transform: 'translateX(-50%) scaleX(-1)',
+        }}
+      />
+      <img
+        src={astronautBear} alt=""
+        className="floating-bear astronaut pointer-events-none absolute z-30"
+        style={{
+          width: '5.5%',
+          height: 'auto',
+          bottom: 'calc( (886/1342) * (100vh - 96px) + 48px )',
+          left: 'calc( 24px + (1296/1842) * (100vw - 72px) + 24px )',
+          transform: 'translateX(-50%)',
+        }}
+      />
 
       {/* ── Main grid ── */}
       <div
@@ -79,32 +76,31 @@ export default function App() {
         {/* About Us */}
         <SectionCard
           title="About Us"
-          className="bg-[#c8d7eb]/0"
+          className="bg-[#c8d7eb]/0 cell-aboutus"
           titleClassName="font-cartoon font-normal leading-none text-[#000000]"
           textClassName="font-cartoon font-semibold text-[#11173E] leading-snug"
           titleStyle={{ fontSize: 'clamp(1.5rem, 2.8vw, 3.5rem)' }}
           textStyle={{ fontSize: 'clamp(0.55rem, 0.85vw, 0.95rem)' }}
         >
-          <p>Pluto Token is a celestial cryptocurrency inspired by the mysterious dwarf planet, Pluto. Just as Pluto holds a unique place in our solar system, this token represents innovation, exploration, and discovery in the world of digital assets.</p>
-          <p>With a focus on community-driven growth and transparency, Pluto Token aims to bring a sense of wonder and excitement to the crypto space. Whether you're a seasoned investor or a newcomer, Pluto Token is here to offer an out-of-this-world experience. Join us on this cosmic journey as we venture beyond the stars!</p>
+          <p>Pluto Token is a celestial cryptocurrency inspired by the mysterious dwarf planet, Pluto. Just as Pluto holds a unique place in our solar system, this token represents innovation, exploration, and discovery in the world of digital assets. With a focus on community-driven growth and transparency, Pluto Token aims to bring a sense of wonder and excitement to the crypto space. Whether you're a seasoned investor or a newcomer, Pluto Token is here to offer an out-of-this-world experience. Join us on this cosmic journey as we venture beyond the stars!</p>
         </SectionCard>
 
         {/* Roadmap */}
         <SectionCard
           title="Roadmap"
-          className="bg-[#c8d7eb]/0"
+          className="bg-[#c8d7eb]/0 cell-roadmap"
           titleClassName="font-cartoon font-normal leading-none text-[#000000]"
           textClassName="font-cartoon font-semibold text-[#11173E] leading-snug space-y-2"
           titleStyle={{ fontSize: 'clamp(1.5rem, 2.8vw, 3.5rem)' }}
           textStyle={{ fontSize: 'clamp(0.55rem, 0.85vw, 0.95rem)' }}
         >
-          <p>Officially launch Pluto Token and establish a vibrant, engaged community through social media, partnerships, and educational content.</p>
-          <p>Develop and integrate Pluto Token into key platforms, building real-world use cases.</p>
+          <p>officially launch Pluto Token and establish a vibrant, engaged community through social media, partnerships, and educational content.</p>
+          <p>Develop and integrate Pluto Token into key platforms, enabling real-world use cases.</p>
           <p>Focus on expanding Pluto Token's ecosystem, introducing new features, and exploring innovative ways.</p>
         </SectionCard>
 
         {/* Planets (top-right) */}
-        <section className="relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md">
+        <section className="cell-planets relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md">
           <img
             src={spaceBoard}
             alt="space background"
@@ -134,7 +130,7 @@ export default function App() {
         {/* ── ROW 2 ── */}
 
         {/* Tokenomics */}
-        <section className="relative overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md">
+        <section className="cell-tokenomics relative overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md">
           <img
             src={tokenomicsBg}
             alt=""
@@ -172,7 +168,7 @@ export default function App() {
 
         {/* PLUTO hero */}
         <section
-          className="relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md"
+          className="cell-pluto relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md"
           style={{ backgroundImage: `url(${heroPanel})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
           <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
@@ -190,7 +186,7 @@ export default function App() {
               fontFamily: 'Marhey, cursive',
               fontSize: 'clamp(0.55rem, 0.85vw, 0.9rem)',
               fontWeight: 600,
-              color: '#fff',
+              color: '#000000',
               textShadow: '1px 1px 4px rgba(0,0,0,0.9)',
               maxWidth: '60%',
               lineHeight: 1.4,
@@ -201,32 +197,38 @@ export default function App() {
             </p>
           </div>
           <img
-  src={floatingBear} alt=""
-  className="pluto-bear pointer-events-none absolute z-20"
-  style={{ bottom: 50, right: '8%', height: '55%', width: 'auto' }}
-/>
+            src={floatingBear} alt=""
+            className="pluto-bear pointer-events-none absolute z-20"
+            style={{ bottom: 50, right: '8%', height: '55%', width: 'auto' }}
+          />
         </section>
 
         {/* How to Buy */}
         <SectionCard
           title="How to Buy"
-          className="bg-[#c8d7eb]/0"
+          className="bg-[#c8d7eb]/0 cell-howtobuy"
           titleClassName="font-cartoon font-normal leading-none text-[#000000]"
           textClassName="font-cartoon font-semibold text-[#11173E] leading-snug space-y-2"
           titleStyle={{ fontSize: 'clamp(1.5rem, 2.8vw, 3.5rem)' }}
           textStyle={{ fontSize: 'clamp(0.55rem, 0.85vw, 0.95rem)' }}
         >
-          <p>Prepare Your Rocket Fuel – Set up a digital wallet to fuel your journey to Pluto.</p>
-          <p>Blast Off to the Exchange – Visit a trusted decentralized exchange (DEX).</p>
-          <p>Land on Pluto – Once your wallet is connected, swap your ETH or BNB for Pluto Token and watch your assets launch into the cosmos!</p>
+          <p>Prepare Your Rocket Fuel- Set up a digital wallet to fuel your journey to Pluto.</p>
+          <p>Blast Off to the Exchange - Visit a trusted decentralized exchange (DEX)</p>
+          <p>Land on Pluto - Once your wallet is connected, swap your ETH or BNB for Pluto Token and watch your assets launch into the cosmos!</p>
         </SectionCard>
 
         {/* ── ROW 3 ── */}
 
         {/* Join Now */}
-        <section className="relative box-border overflow-hidden rounded-xl border-[2px] border-black/0 shadow-md bg-[#c8d7eb]/70">
+        <section className="cell-joinnow relative box-border overflow-hidden rounded-xl border-[2px] border-black/0 shadow-md bg-[#c8d7eb]/70">
           <div className="relative z-10 flex h-full flex-col items-center justify-start pt-3 px-4 text-center gap-2">
-            <p style={{ fontFamily: 'Marhey, cursive', fontSize: 'clamp(0.55rem, 0.85vw, 0.9rem)', fontWeight: 600, color: '#11173E', lineHeight: 1.5 }}>
+            <p style={{
+              fontFamily: 'Marhey, cursive',
+              fontSize: 'clamp(0.55rem, 0.85vw, 0.9rem)',
+              fontWeight: 600,
+              color: '#11173E',
+              lineHeight: 1.5,
+            }}>
               Embark on an interstellar journey with us! Join the Pluto Token community today and be part of a vibrant group of explorers, innovators, and dreamers.
             </p>
             <div className="flex items-center gap-3">
@@ -249,66 +251,65 @@ export default function App() {
         {/* Our Story */}
         <SectionCard
           title="Our Story"
-          className="bg-[#c8d7eb]/0"
+          className="bg-[#c8d7eb]/0 cell-ourstory"
           titleClassName="font-cartoon font-normal leading-none text-[#000000]"
           textClassName="font-cartoon font-semibold text-[#11173E] leading-snug space-y-2"
           titleStyle={{ fontSize: 'clamp(1.5rem, 2.8vw, 3.5rem)' }}
           textStyle={{ fontSize: 'clamp(0.55rem, 0.85vw, 0.95rem)' }}
         >
-          <p>In the vast expanse of the digital universe, Pluto Token was born as a small but powerful entity designed to make a big impact.</p>
-          <p>Much like Pluto, which was once seen as a distant and enigmatic world, Pluto Token represents the spirit of exploration and discovery in the crypto space. With a mission to bring innovation and inclusivity to the world of digital assets.</p>
+          <p>In the vast expanse of the digital universe, Pluto Token was born—a small but powerful entity destined to make a big impact. Much like Pluto, which was once seen as a distant and enigmatic world at solar system, Pluto Token represents the spirit of exploration and discovery in the crypto space. With a mission to bring innovation and inclusivity to the world of digital assets. In the vast expanse of the digital universe, Pluto Token was born—a small but powerful entity destined to make a big impact. Much like Pluto, which was once seen as a distant and enigmatic world at solar system.</p>
         </SectionCard>
 
-       {/* Buy Now */}
-<section
-  className="relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md buy-now-section"
->
-  <img
-    src={tokenomicsBg}
-    alt=""
-    style={{
-      position: 'absolute',
-      width: '1436px',
-      height: '874px',
-      left: '-122px',
-      top: '-384px',
-      objectFit: 'cover',
-    }}
-  />
-  <div
-    className="absolute z-20 flex items-center justify-center rounded-full bg-[#e02020]"
-    style={{
-      width: 'clamp(55px, 7.5vw, 105px)',
-      height: 'clamp(55px, 7.5vw, 105px)',
-      left: '8%',
-      top: '50%',
-      transform: 'translateY(-50%)',
-      boxShadow: '0 4px 15px rgba(0,0,0,0.5)',
-    }}
-  >
-    <span style={{
-      fontFamily: 'Marhey, cursive',
-      fontSize: 'clamp(0.8rem, 1.6vw, 1.4rem)',
-      fontWeight: 900,
-      color: '#fff',
-      textAlign: 'center',
-      lineHeight: 1.1,
-      textShadow: '2px 2px 4px rgba(0,0,0,0.6)',
-    }}>
-      BUY<br />NOW
-    </span>
-  </div>
-  <img
-    src={buyNowBear} alt=""
-    className="buy-now-bear pointer-events-none absolute z-20"
-    style={{
-      width: '212.67px',
-      height: '313.84px',
-      left: '236px',
-      top: '106px',
-    }}
-  />
-</section>
+        {/* Buy Now */}
+        <section
+          className="cell-buynow buy-now-section relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md"
+        >
+          <img
+            src={tokenomicsBg}
+            alt=""
+            style={{
+              position: 'absolute',
+              width: '1436px',
+              height: '874px',
+              left: '-122px',
+              top: '-384px',
+              objectFit: 'cover',
+            }}
+          />
+          <div
+            className="absolute z-20 flex items-center justify-center rounded-full bg-[#e02020]"
+            style={{
+              width: 'clamp(55px, 7.5vw, 105px)',
+              height: 'clamp(55px, 7.5vw, 105px)',
+              left: '8%',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              boxShadow: '0 4px 15px rgba(0,0,0,0.5)',
+            }}
+          >
+            <span style={{
+              fontFamily: 'Marhey, cursive',
+              fontSize: 'clamp(0.8rem, 1.6vw, 1.4rem)',
+              fontWeight: 900,
+              color: '#000000',
+              textAlign: 'center',
+              lineHeight: 1.1,
+              textShadow: '2px 2px 4px rgba(0,0,0,0.6)',
+            }}>
+              BUY<br />NOW
+            </span>
+          </div>
+          <img
+            src={buyNowBear} alt=""
+            className="buy-now-bear pointer-events-none absolute z-20"
+            style={{
+              width: '212.67px',
+              height: '313.84px',
+              left: '236px',
+              top: '106px',
+            }}
+          />
+        </section>
 
       </div>
     </div>
