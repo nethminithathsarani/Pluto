@@ -13,56 +13,58 @@ import meditatingBear from './assets/Images/image (5).png'
 export default function App() {
   return (
     <div
-      className="relative w-full overflow-hidden"
-      style={{ height: '100vh' }}
+      className="relative w-full overflow-x-hidden overflow-y-auto"
+      style={{ minHeight: '100vh' }}
     >
-      {/* Single bg image — 30% opacity, offset like Figma */}
-      {/* Single bg image — 30% opacity, full cover */}
+      {/* Single bg image — untouched */}
+      <img
+        src={heroPanel}
+        alt=""
+        className="pointer-events-none absolute z-0"
+        style={{
+          width: '100%',
+          height: '2572px',
+          top: -300,
+          left: 0,
+          objectFit: 'cover',
+          objectPosition: 'center top',
+          opacity: 0.5,
+        }}
+      />
+
+      {/* ── Floating bears — desktop only ── */}
+      {/* Standing bear */}
 <img
-  src={heroPanel}
-  alt=""
-  className="pointer-events-none absolute z-0"
+  src={standingBear} alt=""
+  className="floating-bear standing pointer-events-none absolute z-30"
   style={{
-    width: '100%',
-    height: '2572px',
-    top: -300,
-    left: 0,
-    objectFit: 'cover',
-    objectPosition: 'center top',
-    opacity: 0.5,
+    width: '8%',
+    height: 'auto',
+    bottom: 'calc( (886/1342) * (100vh - 96px) + 48px )',
+    left: 'calc( 24px + (628/1842) * (100vw - 72px) + 24px )',
+    transform: 'translateX(-50%) scaleX(-1)',
   }}
 />
 
-      {/* ── Floating bears ── */}
-      <img
-        src={standingBear} alt=""
-        className="pointer-events-none absolute z-30"
-        style={{
-          width: '8%',
-          height: 'auto',
-          bottom: 'calc( (886/1342) * (100vh - 96px) + 48px )',
-          left: 'calc( 24px + (628/1842) * (100vw - 72px) + 24px )',
-          transform: 'translateX(-50%) scaleX(-1)',
-        }}
-      />
-      <img
-        src={astronautBear} alt=""
-        className="pointer-events-none absolute z-30"
-        style={{
-          width: '5.5%',
-          height: 'auto',
-          bottom: 'calc( (886/1342) * (100vh - 96px) + 48px )',
-          left: 'calc( 24px + (1296/1842) * (100vw - 72px) + 24px )',
-          transform: 'translateX(-50%)',
-        }}
-      />
+{/* Astronaut bear */}
+<img
+  src={astronautBear} alt=""
+  className="floating-bear astronaut pointer-events-none absolute z-30"
+  style={{
+    width: '5.5%',
+    height: 'auto',
+    bottom: 'calc( (886/1342) * (100vh - 96px) + 48px )',
+    left: 'calc( 24px + (1296/1842) * (100vw - 72px) + 24px )',
+    transform: 'translateX(-50%)',
+  }}
+/>
 
       {/* ── Main grid ── */}
       <div
-        className="relative z-10"
+        className="relative z-10 main-grid"
         style={{
           display: 'grid',
-          height: '100vh',
+          minHeight: '100vh',
           width: '100%',
           padding: '24px',
           gap: '24px',
@@ -199,10 +201,10 @@ export default function App() {
             </p>
           </div>
           <img
-            src={floatingBear} alt=""
-            className="pointer-events-none absolute z-20"
-            style={{ bottom: 0, right: '4%', height: '55%', width: 'auto' }}
-          />
+  src={floatingBear} alt=""
+  className="pluto-bear pointer-events-none absolute z-20"
+  style={{ bottom: 50, right: '8%', height: '55%', width: 'auto' }}
+/>
         </section>
 
         {/* How to Buy */}
@@ -257,56 +259,56 @@ export default function App() {
           <p>Much like Pluto, which was once seen as a distant and enigmatic world, Pluto Token represents the spirit of exploration and discovery in the crypto space. With a mission to bring innovation and inclusivity to the world of digital assets.</p>
         </SectionCard>
 
-        {/* Buy Now */}
-        <section
-          className="relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md"
-        >
-          <img
-            src={tokenomicsBg}
-            alt=""
-            style={{
-              position: 'absolute',
-              width: '1436px',
-              height: '874px',
-              left: '-122px',
-              top: '-384px',
-              objectFit: 'cover',
-            }}
-          />
-          <div
-            className="absolute z-20 flex items-center justify-center rounded-full bg-[#e02020]"
-            style={{
-              width: 'clamp(55px, 7.5vw, 105px)',
-              height: 'clamp(55px, 7.5vw, 105px)',
-              left: '8%',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              boxShadow: '0 4px 15px rgba(0,0,0,0.5)',
-            }}
-          >
-            <span style={{
-              fontFamily: 'Marhey, cursive',
-              fontSize: 'clamp(0.8rem, 1.6vw, 1.4rem)',
-              fontWeight: 900,
-              color: '#fff',
-              textAlign: 'center',
-              lineHeight: 1.1,
-              textShadow: '2px 2px 4px rgba(0,0,0,0.6)',
-            }}>
-              BUY<br />NOW
-            </span>
-          </div>
-          <img
-            src={buyNowBear} alt=""
-            className="pointer-events-none absolute z-20"
-            style={{
-              width: '212.67px',
-              height: '313.84px',
-              left: '236px',
-              top: '106px',
-            }}
-          />
-        </section>
+       {/* Buy Now */}
+<section
+  className="relative box-border overflow-hidden rounded-xl border-[2px] border-black/70 shadow-md buy-now-section"
+>
+  <img
+    src={tokenomicsBg}
+    alt=""
+    style={{
+      position: 'absolute',
+      width: '1436px',
+      height: '874px',
+      left: '-122px',
+      top: '-384px',
+      objectFit: 'cover',
+    }}
+  />
+  <div
+    className="absolute z-20 flex items-center justify-center rounded-full bg-[#e02020]"
+    style={{
+      width: 'clamp(55px, 7.5vw, 105px)',
+      height: 'clamp(55px, 7.5vw, 105px)',
+      left: '8%',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      boxShadow: '0 4px 15px rgba(0,0,0,0.5)',
+    }}
+  >
+    <span style={{
+      fontFamily: 'Marhey, cursive',
+      fontSize: 'clamp(0.8rem, 1.6vw, 1.4rem)',
+      fontWeight: 900,
+      color: '#fff',
+      textAlign: 'center',
+      lineHeight: 1.1,
+      textShadow: '2px 2px 4px rgba(0,0,0,0.6)',
+    }}>
+      BUY<br />NOW
+    </span>
+  </div>
+  <img
+    src={buyNowBear} alt=""
+    className="buy-now-bear pointer-events-none absolute z-20"
+    style={{
+      width: '212.67px',
+      height: '313.84px',
+      left: '236px',
+      top: '106px',
+    }}
+  />
+</section>
 
       </div>
     </div>

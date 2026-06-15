@@ -19,3 +19,109 @@ body,
   width: 100%;
   overflow: hidden;
 }
+
+/* Tablet: 2 columns, scrollable */
+@media (max-width: 1024px) {
+  html,
+  body,
+  #root {
+    overflow: auto;
+    height: auto;
+  }
+
+  .main-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: auto !important;
+    height: auto !important;
+    min-height: 100vh;
+  }
+
+  .main-grid > * {
+    min-height: 400px;
+  }
+
+  .floating-bear.standing {
+    width: 12% !important;
+    bottom: auto !important;
+    top: calc(400px - 60px) !important;
+    left: 48% !important;
+    transform: translateX(-50%) scaleX(-1) !important;
+  }
+
+  .floating-bear.astronaut {
+    display: none !important;
+  }
+
+  .pluto-bear {
+    height: 35% !important;
+  }
+
+  .buy-now-section {
+    grid-column: 1 / -1 !important;
+    min-height: 300px !important;
+  }
+
+  .buy-now-bear {
+    width: auto !important;
+    height: 80% !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: 0 !important;
+    right: 8% !important;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 640px) {
+  html,
+  body,
+  #root {
+    overflow: auto;
+    height: auto;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    height: auto !important;
+    min-height: 100vh;
+    padding: 12px !important;
+    gap: 12px !important;
+  }
+
+  .main-grid > * {
+    min-height: 300px;
+  }
+
+  /* Reorder to match Figma mobile layout */
+  .cell-pluto     { order: 1; }
+  .cell-aboutus   { order: 2; }
+  .cell-roadmap   { order: 3; }
+  .cell-planets   { order: 4; }
+  .cell-tokenomics { order: 5; }
+  .cell-howtobuy  { order: 6; }
+  .cell-joinnow   { order: 7; }
+  .cell-ourstory  { order: 8; }
+  .cell-buynow    { order: 9; }
+
+  .floating-bear {
+    display: none !important;
+  }
+
+  .pluto-bear {
+    height: 45% !important;
+  }
+
+  .buy-now-section {
+    min-height: 300px !important;
+  }
+
+  .buy-now-bear {
+    width: auto !important;
+    height: 75% !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: 0 !important;
+    right: 5% !important;
+  }
+}
