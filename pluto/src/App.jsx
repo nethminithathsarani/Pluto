@@ -84,7 +84,7 @@ export default function App() {
           <img
             src={standingBear} alt=""
             className="mobile-bear-aboutus pointer-events-none absolute z-30"
-            style={{ width: '30%', height: 'auto', bottom: 0, right: 0, transform: 'scaleX(-1)' }}
+            style={{ width: '20%', height: 'auto', bottom: 0, right: 0, transform: 'scaleX(-1)' }}
           />
         </SectionCard>
 
@@ -104,7 +104,7 @@ export default function App() {
           <img
             src={astronautBear} alt=""
             className="mobile-bear-roadmap pointer-events-none absolute z-30"
-            style={{ width: '25%', height: 'auto', bottom: 0, right: 0 }}
+            style={{ width: '18%', height: 'auto', bottom: 0, right: 0 }}
           />
         </SectionCard>
 
@@ -313,7 +313,7 @@ export default function App() {
             className="buy-now-bear pointer-events-none absolute z-20"
             style={{
               width: 'auto',
-              height: '60%',
+              height: '50%',
               bottom: 0,
               right: '33%',
               left: 'auto',

@@ -99,7 +99,7 @@ body,
 
   .buy-now-bear {
     width: auto !important;
-    height: 80% !important;
+    height: 70% !important;
     left: auto !important;
     top: auto !important;
     bottom: 0 !important;
@@ -165,10 +165,11 @@ body,
   .mobile-bear-aboutus,
   .mobile-bear-roadmap {
     display: block !important;
+    
   }
 
   .pluto-bear {
-    height: 45% !important;
+    height: 35% !important;
   }
 
   .buy-now-section {
@@ -177,7 +178,7 @@ body,
 
   .buy-now-bear {
     width: auto !important;
-    height: 75% !important;
+    height: 60% !important;
     left: auto !important;
     top: auto !important;
     bottom: 0 !important;
