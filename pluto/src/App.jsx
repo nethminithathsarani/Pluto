@@ -17,19 +17,19 @@ export default function App() {
 >
       {/* Single bg image — untouched */}
       <img
-        src={heroPanel}
-        alt=""
-        className="pointer-events-none absolute z-0"
-        style={{
-          width: '100%',
-          height: '2572px',
-          top: -300,
-          left: 0,
-          objectFit: 'cover',
-          objectPosition: 'center top',
-          opacity: 0.3,
-        }}
-      />
+  src={heroPanel}
+  alt=""
+  className="pointer-events-none absolute z-0"
+  style={{
+    width: '100%',
+    height: '100%',
+    top: 0,
+    left: 0,
+    objectFit: 'cover',
+    objectPosition: 'center top',
+    opacity: 0.3,
+  }}
+/>
 
       {/* ── Floating bears ── */}
       <img
