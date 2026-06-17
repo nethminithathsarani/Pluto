@@ -1,0 +1,153 @@
+/* ═══════════════════════════════════════════
+   PLUTO TOKEN — animations.css
+   Import in App.jsx: import './animations.css'
+   ═══════════════════════════════════════════ */
+
+/* ── Floating bear bob ── */
+@keyframes floatBob {
+  0%, 100% { transform: translateX(-50%) translateY(0px); }
+  50%       { transform: translateX(-50%) translateY(-12px); }
+}
+@keyframes floatBobFlip {
+  0%, 100% { transform: translateX(-50%) translateY(0px) scaleX(-1); }
+  50%       { transform: translateX(-50%) translateY(-12px) scaleX(-1); }
+}
+@keyframes floatBobSimple {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes floatBobFlipSimple {
+  0%, 100% { transform: translateY(0px) scaleX(-1); }
+  50%       { transform: translateY(-10px) scaleX(-1); }
+}
+@keyframes floatBobCenter {
+  0%, 100% { transform: translateX(-50%) translateY(0px); }
+  50%       { transform: translateX(-50%) translateY(-8px); }
+}
+
+.floating-bear.astronaut  { animation: floatBob 3.2s ease-in-out infinite; }
+.floating-bear.standing   { animation: floatBobFlip 3.8s ease-in-out infinite; }
+.pluto-bear               { animation: floatBobSimple 3.5s ease-in-out infinite; }
+.buy-now-bear             { animation: floatBobSimple 4s ease-in-out infinite; }
+.mobile-bear-aboutus      { animation: floatBobFlipSimple 3.6s ease-in-out infinite; }
+.mobile-bear-roadmap      { animation: floatBobSimple 3.4s ease-in-out infinite; }
+.meditating-bear          { animation: floatBobCenter 4.2s ease-in-out infinite; }
+
+/* ── Scroll / load reveal ──
+   On desktop (overflow:hidden, no scroll) cards become visible
+   immediately via the .desktop-visible class added in App.jsx.
+   On tablet/mobile they reveal as they scroll into view via JS observer.
+── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.reveal-delay-1 { transition-delay: 0.05s; }
+.reveal-delay-2 { transition-delay: 0.12s; }
+.reveal-delay-3 { transition-delay: 0.19s; }
+.reveal-delay-4 { transition-delay: 0.26s; }
+.reveal-delay-5 { transition-delay: 0.33s; }
+.reveal-delay-6 { transition-delay: 0.40s; }
+.reveal-delay-7 { transition-delay: 0.47s; }
+.reveal-delay-8 { transition-delay: 0.54s; }
+.reveal-delay-9 { transition-delay: 0.61s; }
+
+/* ── Card hover lift + glow ── */
+.bento-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.55s ease;   /* keep transition from reveal */
+  will-change: transform;
+}
+.bento-card:hover {
+  transform: translateY(-5px) scale(1.012);
+  box-shadow:
+    0 12px 32px rgba(100, 140, 255, 0.25),
+    0 0 0 1.5px rgba(100, 140, 255, 0.18);
+  z-index: 20;
+}
+
+/* ── BUY NOW pulse ── */
+@keyframes pulseBuy {
+  0%, 100% {
+    box-shadow:
+      0 4px 15px rgba(224, 32, 32, 0.5),
+      0 0 0 0 rgba(224, 32, 32, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 4px 20px rgba(224, 32, 32, 0.7),
+      0 0 0 10px rgba(224, 32, 32, 0);
+  }
+}
+.buy-now-btn { animation: pulseBuy 2s ease-in-out infinite; }
+
+/* ── JOIN NOW shimmer ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.join-now-text {
+  background: linear-gradient(
+    90deg,
+    #000 0%, #000 35%,
+    #fff8 50%,
+    #000 65%, #000 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── PLUTO title glow breathe ── */
+@keyframes breathe {
+  0%, 100% {
+    text-shadow:
+      3px 3px 0px #000, -1px -1px 0px #000,
+      0 0 12px rgba(255,154,46,0.3);
+  }
+  50% {
+    text-shadow:
+      3px 3px 0px #000, -1px -1px 0px #000,
+      0 0 28px rgba(255,154,46,0.85);
+  }
+}
+.pluto-title { animation: breathe 3s ease-in-out infinite; }
+
+/* ── Planet gif scale pulse ── */
+@keyframes planetPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.05); }
+}
+.planet-art { animation: planetPulse 4s ease-in-out infinite; }
+
+/* ── Twinkling stars overlay ── */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50%       { opacity: 0.50; }
+}
+.stars-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background-image:
+    radial-gradient(1px 1px at 15% 20%, white, transparent),
+    radial-gradient(1px 1px at 35% 55%, white, transparent),
+    radial-gradient(1.5px 1.5px at 60% 30%, white, transparent),
+    radial-gradient(1px 1px at 80% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 85%, white, transparent),
+    radial-gradient(1.5px 1.5px at 25% 75%, white, transparent),
+    radial-gradient(1px 1px at 90% 15%, white, transparent);
+  animation: twinkle 2.8s ease-in-out infinite alternate;
+}
