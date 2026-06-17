@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import './index.css'
-import './animations.css'
+import './Animations.css'
 import SectionCard from './components/SectionCard'
 import heroPanel      from './assets/Images/botcalm_cartoon_type_etc.png'
 import astronautBear  from './assets/Images/image (2).png'
