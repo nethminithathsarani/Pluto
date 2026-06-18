@@ -48,8 +48,8 @@ body,
   }
 
   .page-wrapper {
-    height: auto !important; //test
-    
+    height: auto !important; 
+
     min-height: unset !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch;

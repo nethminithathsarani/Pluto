@@ -1,4 +1,4 @@
-import React from 'react'
+
 import heroBg from '../assets/hero-illustration.png'
 import astronaut from '../assets/astronaut-tiger-wave.png'
 
